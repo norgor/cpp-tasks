@@ -45,11 +45,11 @@ int main() {
         std::cout << "Posisjon til hallo: finnes ikke" << "\n";
     }
     
-    // h)
-    size_t index = 0;
+    // h
+    size_t index = SIZE_MAX;
     std::cout << "Posisjoner til 'er': ";
-    while ((index = sentence.find("er", index)) != std::string::npos) {
-        std::cout << index;
+    while ((index = sentence.find("er", index + 1)) != std::string::npos) {
+        std::cout << index << " ";
     }
     std::cout << "\n";
 }
