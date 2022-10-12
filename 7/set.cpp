@@ -5,23 +5,25 @@ Set::Set() {}
 
 Set::Set(const Set& set) : nums(std::vector<int>(set.nums)) {}
 
-Set Set::U(const Set& other) const {
+Set Set::operator+(const Set& other) const {
     Set u = *this;
     u.nums.reserve((this->nums.size() + other.nums.size()));
 
     for (int num : other.nums) {
-        u.add(num);
+        u += num;
     }
 
     return u;
 }
 
-void Set::add(int num) {
+Set &Set::operator+=(int num) {
     auto found = std::find(this->nums.begin(), this->nums.end(), num);
 
     if (found == this->nums.end()) {
         this->nums.emplace_back(num);
     }
+
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream &lhs, const Set& set) {

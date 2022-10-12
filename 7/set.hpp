@@ -12,8 +12,8 @@ public:
 	Set();
     Set(const Set& set);
     
-    Set U(const Set& other) const;
-    void add(int num);
+    Set operator+(const Set& other) const;
+    Set &operator+=(int num);
 
     friend std::ostream& operator<<(std::ostream &lhs, const Set& set);
 };
